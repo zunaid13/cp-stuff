@@ -1,0 +1,12 @@
+// tuple
+tuple <int, int, int, float> t;
+t = make_tuple(1, 2, 3, 4.5);
+
+
+using namespace std;
+
+namespace std{
+    ... ... ...
+}
+
+inheritance, polymorphism, class, methods, properties
