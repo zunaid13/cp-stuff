@@ -1,0 +1,223 @@
+{
+  "C++": {
+      "prefix": "c++skeleton",
+      "body": [
+        "/*",
+        "⡆⣐⢕⢕⢕⢕⢕⢕⢕⢕⠅⢗⢕⢕⢕⢕⢕⢕⢕⠕⠕⢕⢕⢕⢕⢕⢕⢕⢕⢕",
+        "⢐⢕⢕⢕⢕⢕⣕⢕⢕⠕⠁⢕⢕⢕⢕⢕⢕⢕⢕⠅⡄⢕⢕⢕⢕⢕⢕⢕⢕⢕",
+        "⢕⢕⢕⢕⢕⠅⢗⢕⠕⣠⠄⣗⢕⢕⠕⢕⢕⢕⠕⢠⣿⠐⢕⢕⢕⠑⢕⢕⠵⢕",
+        "⢕⢕⢕⢕⠁⢜⠕⢁⣴⣿⡇⢓⢕⢵⢐⢕⢕⠕⢁⣾⢿⣧⠑⢕⢕⠄⢑⢕⠅⢕",
+        "⢕⢕⠵⢁⠔⢁⣤⣤⣶⣶⣶⡐⣕⢽⠐⢕⠕⣡⣾⣶⣶⣶⣤⡁⢓⢕⠄⢑⢅⢑",
+        "⠍⣧⠄⣶⣾⣿⣿⣿⣿⣿⣿⣷⣔⢕⢄⢡⣾⣿⣿⣿⣿⣿⣿⣿⣦⡑⢕⢤⠱⢐",
+        "⢠⢕⠅⣾⣿⠋⢿⣿⣿⣿⠉⣿⣿⣷⣦⣶⣽⣿⣿⠈⣿⣿⣿⣿⠏⢹⣷⣷⡅⢐",
+        "⣔⢕⢥⢻⣿⡀⠈⠛⠛⠁⢠⣿⣿⣿⣿⣿⣿⣿⣿⡀⠈⠛⠛⠁⠄⣼⣿⣿⡇⢔",
+        "⢕⢕⢽⢸⢟⢟⢖⢖⢤⣶⡟⢻⣿⡿⠻⣿⣿⡟⢀⣿⣦⢤⢤⢔⢞⢿⢿⣿⠁⢕",
+        "⢕⢕⠅⣐⢕⢕⢕⢕⢕⣿⣿⡄⠛⢀⣦⠈⠛⢁⣼⣿⢗⢕⢕⢕⢕⢕⢕⡏⣘⢕",
+        "⢕⢕⠅⢓⣕⣕⣕⣕⣵⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣷⣕⢕⢕⢕⢕⡵⢀⢕⢕",
+        "⢑⢕⠃⡈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢃⢕⢕⢕",
+        "⣆⢕⠄⢱⣄⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢁⢕⢕⠕⢁",
+        "⣿⣦⡀⣿⣿⣷⣶⣬⣍⣛⣛⣛⡛⠿⠿⠿⠛⠛⢛⣛⣉⣭⣤⣂⢜⠕⢑⣡⣴⣿",
+        "*/",    
+        "#include <bits/stdc++.h>",
+        "",
+        "using namespace std;",
+        "",
+        "typedef long long LL;",
+        "typedef long double LD;",
+        "#define pi acos(-1)",
+        "#define whatis(x) cout << #x << \" is \" << x << \"\\n\";",
+        "#define all(x) begin(x), end(x)",
+        "#define endl \"\\n\"",
+        "#define DEB cout << \"TESTING\" << endl;",
+        "#define TESTS int test; cin>>test; for(int kase = 1 ; kase <= test ; kase++) solve(kase);",
+        "#define CASEOUT cout << \"Case \" << testcase << \": \"",
+        "#define YESNO cout << (possible? \"YES\\n\" : \"NO\\n\");",
+        "// #define YES cout << \"YES\\n\";",
+        "// #define NO cout << \"NO\\n\";",
+        "// #define int long long",
+        "#define pii pair<int,int>",
+        "#define ff first",
+        "#define ss second",
+        "const LL MAX = 100;",
+        "const LL MOD = (1e9) + 7;",
+        "const LL INF = (1e15) + 5;",
+        "",
+        "int solve(int testcase)",
+        "{",
+        "    return 0;",
+        "}",
+        "",
+        "signed main()",
+        "{",
+        "    #ifndef ONLINE_JUDGE",
+        "    freopen(\"in.txt\", \"r\", stdin);",
+        "    freopen(\"out.txt\", \"w\", stdout);",
+        "    #endif",
+        "",
+        "    ios_base::sync_with_stdio(false);",
+        "    cin.tie(NULL);",
+        "    //cout.tie(NULL);",
+        "",
+        "    //solve(0);",
+        "    //TESTS",
+        "    return 0;",
+        "}"
+      ],
+      "description": "C++"
+    },
+
+    "Sieve primes": {
+      "prefix": "sieve_snip",
+      "body": [
+        "#define RANGE 1000009",
+        "bool flag[RANGE] = {};",
+        "vector <LL> primes;",
+        "",
+        "void sieve(void)",
+        "{",
+        "    LL i, j;",
+        "    flag[2] = true;",
+        "    for(i = 3 ; i < RANGE ; i += 2)",
+        "        flag[i] = true;",
+        "    for(i = 3 ; i*i < RANGE ; i += 2)",
+        "    {",
+        "        if(flag[i])",
+        "        {",
+        "            for(j = i*i ; j < RANGE ; j += 2*i)",
+        "                flag[j] = false;",
+        "        }",
+        "    }",
+        "    primes.push_back(2);",
+        "    for(i = 3 ; i < RANGE ; i += 2)",
+        "        if(flag[i])",
+        "            primes.push_back(i);",
+        "}"
+      ],
+      "description": "Sieve primes"
+    },
+
+    "NOD": {
+      "prefix": "nod_snip",
+      "body": [
+        "LL NOD(LL n)",
+        "{",
+        "    LL i, c, ret = 1;",
+        "    for(i = 0 ; primes[i] * primes[i] <= n ; i++)",
+        "    {",
+        "        for(c = 0 ; n%primes[i] == 0 ; c++)",
+        "            n /= primes[i];",
+        "        ret *= (c+1);",
+        "    }",
+        "    if(n > 1)",
+        "        ret *= 2;",
+        "    return ret;",
+        "}"
+      ],
+      "description": "NOD"
+    },
+
+    "SOD": {
+      "prefix": "sod_snip",
+      "body": [
+        "LL SOD(LL n)",
+        "{",
+        "    LL i, c, ret = 1;",
+        "    for(i = 0 ; primes[i]*primes[i] <= n ; i++)",
+        "    {",
+        "        int p = 1;",
+        "        for(c = 0 ; n%primes[i] == 0 ; c++)",
+        "        {",
+        "            n /= primes[i];",
+        "            p *= primes[i];",
+        "        }",
+        "        ret *= (p * primes[i] - 1) / (primes[i] - 1);",
+        "    }",
+        "    if(n > 1)",
+        "        ret *= (n*n-1) / (n-1);",
+        "    return ret;",
+        "}"
+      ],
+      "description": "SOD"
+    },
+
+    "Bigmod": {
+      "prefix": "Bigmod_snip",
+      "body": [
+        "LL bigmod(LL a, LL p, LL m) //calculates (a^p)%m",
+        "{",
+        "    if(p == 0) return 1;",
+        "    LL ret = bigmod(a, p/2, m);",
+        "    ret = (ret*ret)%m;",
+        "    if(p%2 == 1)",
+        "        ret = (ret*a)%m;",
+        "    return ret;",
+        "}"
+      ],
+      "description": "Bigmod"
+    },
+
+    "Mulmod": {
+      "prefix": "Mulmod_snip",
+      "body": [
+        "LL mulmod(LL a, LL b, LL m) //calculates (ab)%m",
+        "{",
+        "    if(b == 0) return 0;",
+        "    LL ret = mulmod(a, b/2, m);",
+        "    ret = (ret + ret)%m;",
+        "    if(b%2 == 1)",
+        "        ret = (ret + a)%m;",
+        "    return ret;",
+        "}"
+      ],
+      "description": "Mulmod"
+    },
+
+    "dec_to_bin": {
+      "prefix": "dec_to_bin_snip",
+      "body": [
+        "string dectobin(LL n)",
+        "{",
+        "    string ret = \"\";",
+        "    while(n)",
+        "    {",
+        "        if(n%2 == 1)",
+        "            ret += \"1\";",
+        "        else ret += \"0\";",
+        "        n /= 2;",
+        "    }",
+        "    reverse(ret.begin(), ret.end());",
+        "    return ret;",
+        "}"
+      ],
+      "description": "dec_to_bin"
+    },
+
+    "bin_to_dec": {
+      "prefix": "bin_to_dec_snip",
+      "body": [
+        "LL bintodec(string n)",
+        "{",
+        "    LL ret = 0;",
+        "    for(int i = 0 ; i < n.size() ; i++)",
+        "    {",
+        "        if(n[i] == '1')",
+        "            ret += power(2, n.size()-i-1);",
+        "    }",
+        "    return ret;",
+        "}"
+      ],
+      "description": "bin_to_dec"
+    },
+
+    "pow": {
+      "prefix": "power_snip",
+      "body": [
+        "LL power(int base, int exp)",
+        "{",
+        "    if(exp == 0) return 1;",
+        "    return base * power(base, exp-1);",
+        "}"
+      ],
+      "description": "pow"
+    }
+}
