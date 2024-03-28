@@ -108,11 +108,11 @@ int solve(int testcase)
         res.clear();
         for(int j = que.size()-1 ; j < inp.size() ; j++)
             res.push_back((que.size() - s[j])/2);
-        // for(auto x : res)
-        //     cout << x << " ";
-        // cout << endl;
+        for(auto x : res)
+            cout << x << " ";
+        cout << endl;
         reverse(all(res));
-        cout << custom_hash(res.size()) << endl;
+        // cout << custom_hash(res.size()) << endl;
     }
     return 0;
 }

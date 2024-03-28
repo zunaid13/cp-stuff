@@ -1,0 +1,12 @@
+go to the file on the terminal and run command:
+stress 100
+- where 100 is the number of times the stress test runs
+- gen is the input generator file
+- solution is our file that we want to stress test
+- brute is the file that gives correct output
+- make sure that solution or brute does NOT output to any external files like txt files
+
+
+for the sh file:
+go to the file on the git bash and run command:
+bash stress.sh
