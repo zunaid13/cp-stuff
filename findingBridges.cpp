@@ -17,53 +17,90 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+#ifdef LOCAL
+ #include "Dbug.h"
+#else
+ #define dbg(...)
+#endif
+
+// #warning CHANGE INT-LONG-LONG IN CASE OF ORDERED SET
+// #warning CHANGE MAX VALUE
+// #warning change endl and FastIO for interactive
 typedef long long LL;
 typedef long double LD;
-#define MAX 100
 #define pi acos(-1)
-#define whatis(x) cout << #x << " is " << x << "\n";
-#define all(x) x.begin(), x.end()
+#define all(x) begin(x), end(x)
 #define endl "\n"
-#define DEB cout << "TESTING" NL
 #define TESTS int test; cin>>test; for(int kase = 1 ; kase <= test ; kase++) solve(kase);
-#define CASEOUT cout << "Case " << testcase << ": " << 
-#define YESNO cout << (possible? "YES\n" : "NO\n");
-// #define YES cout << "YES\n";
-// #define NO cout << "NO\n";
-
-#include "ext/pb_ds/assoc_container.hpp"
-#include "ext/pb_ds/tree_policy.hpp"
-using namespace __gnu_pbds;
-template<class T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-//(FOR ORDERED MULTISET "UPPER_BOUND" AND "LOWER_BOUND" ARE REVERSED)
-template<class T> using ordered_multiset =tree<T, null_type, less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;
-// ordered_set.find_by_order(k) returns the iterator to kth element
-// ordered_set.order_of_key(k) returns the number of elements strictly less than k 
-// OMS erase-find does not work (we use erase-lowerbound- p--)
-    // fbo -> index -> value
-    // ook -> value -> index (if existed)
-
+#define CASEOUT cout << "Case " << testcase << ": "
 #define int long long
+#define pii pair<int,int>
+#ifdef LOCAL
+ const LL MAX = 100;
+#else
+ const LL MAX = 1e2;
+#endif
+const LL MOD = (1e9) + 7;
+const LL INF = (1e15) + 5;
 
+vector<int> adj[MAX]; // adjacency list of graph
+int n; // number of nodes
+vector<bool> visited;
+vector<int> tin, low;
+int timer;
+
+void ISBRIDGE(int v, int to);
+
+int dfs(int v, int p = -1) {
+    visited[v] = true;
+    tin[v] = low[v] = timer++;
+    int ret = 1;
+    for (int to : adj[v]) {
+        if (to == p) {
+            continue;
+        }
+        if (visited[to]) {
+            low[v] = min(low[v], tin[to]);
+        } else {
+            int val = dfs(to, v);
+            ret += val;
+            low[v] = min(low[v], low[to]);
+            if (low[to] > tin[v])
+                ISBRIDGE(v, to);
+        }
+    }
+    return ret;
+}
+
+void find_bridges() {
+    timer = 0;
+    visited.assign(n+1, false);
+    tin.assign(n+1, -1);
+    low.assign(n+1, -1);
+    for (int i = 1; i <= n; ++i) {
+        if (!visited[i])
+            dfs(i);
+    }
+}
 
 
 int solve(int testcase)
 {
-    ordered_set <int> os;
-    os.insert(5);
-    cout << os.order_of_key(5) << endl;
-    return 0;
+    return testcase;
 }
 
 signed main()
 {
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
+    #ifdef LOCAL
+       freopen("in.txt", "r", stdin);
+       freopen("out.txt", "w", stdout);
+    #endif
+
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     //cout.tie(NULL);
 
-    solve(0);
+    //solve(0);
     //TESTS
     return 0;
 }
