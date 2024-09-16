@@ -1,127 +1,99 @@
-#include "bits/stdc++.h"
-#pragma GCC optimize ("O3")
-#pragma GCC target ("sse4")
- 
+/*
+⡆⣐⢕⢕⢕⢕⢕⢕⢕⢕⠅⢗⢕⢕⢕⢕⢕⢕⢕⠕⠕⢕⢕⢕⢕⢕⢕⢕⢕⢕
+⢐⢕⢕⢕⢕⢕⣕⢕⢕⠕⠁⢕⢕⢕⢕⢕⢕⢕⢕⠅⡄⢕⢕⢕⢕⢕⢕⢕⢕⢕
+⢕⢕⢕⢕⢕⠅⢗⢕⠕⣠⠄⣗⢕⢕⠕⢕⢕⢕⠕⢠⣿⠐⢕⢕⢕⠑⢕⢕⠵⢕
+⢕⢕⢕⢕⠁⢜⠕⢁⣴⣿⡇⢓⢕⢵⢐⢕⢕⠕⢁⣾⢿⣧⠑⢕⢕⠄⢑⢕⠅⢕
+⢕⢕⠵⢁⠔⢁⣤⣤⣶⣶⣶⡐⣕⢽⠐⢕⠕⣡⣾⣶⣶⣶⣤⡁⢓⢕⠄⢑⢅⢑
+⠍⣧⠄⣶⣾⣿⣿⣿⣿⣿⣿⣷⣔⢕⢄⢡⣾⣿⣿⣿⣿⣿⣿⣿⣦⡑⢕⢤⠱⢐
+⢠⢕⠅⣾⣿⠋⢿⣿⣿⣿⠉⣿⣿⣷⣦⣶⣽⣿⣿⠈⣿⣿⣿⣿⠏⢹⣷⣷⡅⢐
+⣔⢕⢥⢻⣿⡀⠈⠛⠛⠁⢠⣿⣿⣿⣿⣿⣿⣿⣿⡀⠈⠛⠛⠁⠄⣼⣿⣿⡇⢔
+⢕⢕⢽⢸⢟⢟⢖⢖⢤⣶⡟⢻⣿⡿⠻⣿⣿⡟⢀⣿⣦⢤⢤⢔⢞⢿⢿⣿⠁⢕
+⢕⢕⠅⣐⢕⢕⢕⢕⢕⣿⣿⡄⠛⢀⣦⠈⠛⢁⣼⣿⢗⢕⢕⢕⢕⢕⢕⡏⣘⢕
+⢕⢕⠅⢓⣕⣕⣕⣕⣵⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣷⣕⢕⢕⢕⢕⡵⢀⢕⢕
+⢑⢕⠃⡈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢃⢕⢕⢕
+⣆⢕⠄⢱⣄⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢁⢕⢕⠕⢁
+⣿⣦⡀⣿⣿⣷⣶⣬⣍⣛⣛⣛⡛⠿⠿⠿⠛⠛⢛⣛⣉⣭⣤⣂⢜⠕⢑⣡⣴⣿
+*/
+#include <bits/stdc++.h>
+// #pragma GCC optimize("Ofast,unroll-loops")
+// #pragma GCC target("avx2,popcnt,lzcnt,abm,bmi,bmi2,fma,tune=native")
+
 using namespace std;
- 
-typedef long long ll;
-typedef long double ld;
-typedef complex<ld> cd;
- 
-typedef pair<int, int> pi;
-typedef pair<ll,ll> pl;
-typedef pair<ld,ld> pd;
- 
-typedef vector<int> vi;
-typedef vector<ld> vd;
-typedef vector<ll> vl;
-typedef vector<pi> vpi;
-typedef vector<pl> vpl;
-typedef vector<cd> vcd;
-
-template<class T> using pq = priority_queue<T>;
-template<class T> using pqg = priority_queue<T, vector<T>, greater<T>>;
- 
-#define FOR(i, a, b) for (int i=a; i<(b); i++)
-#define F0R(i, a) for (int i=0; i<(a); i++)
-#define FORd(i,a,b) for (int i = (b)-1; i >= a; i--)
-#define F0Rd(i,a) for (int i = (a)-1; i >= 0; i--)
-#define trav(a,x) for (auto& a : x)
-#define uid(a, b) uniform_int_distribution<int>(a, b)(rng)
- 
-#define sz(x) (int)(x).size()
-#define mp make_pair
-#define pb push_back
-#define f first
-#define s second
-#define lb lower_bound
-#define ub upper_bound
-#define all(x) x.begin(), x.end()
-#define ins insert
-
-template<class T> bool ckmin(T& a, const T& b) { return b < a ? a = b, 1 : 0; }
-template<class T> bool ckmax(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
- 
-mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-
-void __print(int x) {cerr << x;}
-void __print(long x) {cerr << x;}
-void __print(long long x) {cerr << x;}
-void __print(unsigned x) {cerr << x;}
-void __print(unsigned long x) {cerr << x;}
-void __print(unsigned long long x) {cerr << x;}
-void __print(float x) {cerr << x;}
-void __print(double x) {cerr << x;}
-void __print(long double x) {cerr << x;}
-void __print(char x) {cerr << '\'' << x << '\'';}
-void __print(const char *x) {cerr << '\"' << x << '\"';}
-void __print(const string &x) {cerr << '\"' << x << '\"';}
-void __print(bool x) {cerr << (x ? "true" : "false");}
-
-template<typename T, typename V>
-void __print(const pair<T, V> &x) {cerr << '{'; __print(x.first); cerr << ", "; __print(x.second); cerr << '}';}
-template<typename T>
-void __print(const T &x) {int f = 0; cerr << '{'; for (auto &i: x) cerr << (f++ ? ", " : ""), __print(i); cerr << "}";}
-void _print() {cerr << "]\n";}
-template <typename T, typename... V>
-void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v...);}
-#ifdef DEBUG
-#define dbg(x...) cerr << "\e[91m"<<__func__<<":"<<__LINE__<<" [" << #x << "] = ["; _print(x); cerr << "\e[39m" << endl;
+#ifdef LOCAL
+ #include "Dbug.h"
 #else
-#define dbg(x...)
+ #define dbg(...)
 #endif
+typedef long long LL;
+typedef long double LD;
+#define all(x) begin(x), end(x)
+#define endl "\n"
+#define CASEOUT cout << "Case " << testcase << ": "
+#define int long long
+#define pii pair<int,int>
+#ifdef LOCAL
+ const LL MAX = 100 + 2;
+#else
+ const LL MAX = (1e2) + 2;
+#endif
+const LL pi = acos(-1);
+const LL MOD = (1e9) + 7;
+const LL INF = (1e15) + 5;
 
-
-const int MOD = 1000000007;
-const char nl = '\n';
-const int MX = 100001; 
-
-void solve() {
-    int N, D; cin >> N >> D;
-    ll S[N], K[N]; F0R(i, N) cin >> S[i] >> K[i];
-    vi toIns[D]; 
-    set<array<ll, 4>> q;
-    ll suffMax[N];
-    suffMax[N-1] = S[N-1];
-    F0Rd(i, N-1) {
-        suffMax[i] = max(suffMax[i+1], S[i]);
-    }
-    int p = 0;
-    F0R(i, D) {
-        trav(a, toIns[i]) {
-            q.ins({-S[a], i, K[a], a});
-        }
-        //dbg(i, p, q);
-        if (!q.empty() && (*q.begin())[0] < -suffMax[p]) {
-            int cur = (*q.begin())[3];
-            if (i + K[cur] + 1 < D) {
-                toIns[i+K[cur]+1].pb(cur);
+int solve(int testcase)
+{
+    int n;
+    cin >> n;
+    vector <int> a(n), b(n);
+    for(auto &x : a) cin >> x;
+    for(auto &x : b) cin >> x;
+    int ans = 0, cnt = 1;
+    for(int i = 0 ; i < n ; i++)
+    {
+        for(int j = i ; j < n ; j++)
+        {
+            for(int k = i ; k <= j ; k++)
+                swap(a[k], b[k]);
+            int gA = 0, gB = 0;
+            for(int k = 0 ; k < n ; k++)
+            {
+                gA = __gcd(a[k], gA);
+                gB = __gcd(b[k], gB);
             }
-            q.erase(q.begin());
-        } else {
-            if (i + K[p] + 1 < D) {
-                toIns[i+K[p]+1].pb(p);
+            if(ans < gA + gB)
+            {
+                ans = gA + gB;
+                cnt = 1;
             }
-            p++;
-            if (p == N) {
-                cout << i+1 << nl; return;
-            }
-        }
+            else if(ans == gA + gB)
+                cnt++;
+            for(int k = i ; k <= j ; k++)
+                swap(a[k], b[k]);
+        }   
     }
-    cout << -1 << nl;
-
-}
- 
-int main() {
-    ios_base::sync_with_stdio(0); cin.tie(0);
-
-    int T = 1;
-    cin >> T;
-    while(T--) {
-        solve();
-    }
-
-	return 0;
+    cout << ans << " " << cnt << endl;
+    return testcase;
 }
 
+signed main()
+{
+    #ifdef LOCAL
+       freopen("in.txt", "r", stdin);
+       freopen("out.txt", "w", stdout);
+       clock_t start = clock();
+    #endif
 
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    //cout.tie(NULL);
+
+    int testCases = 1;
+    cin >> testCases;
+    for(int i = 1 ; i <= testCases; i++)
+        solve(i);
+
+    #ifdef LOCAL
+        cerr << "\nRunning Time: " << double(clock() - start) / CLOCKS_PER_SEC * 1000 << "ms" << endl;
+    #endif
+    return 0;
+}

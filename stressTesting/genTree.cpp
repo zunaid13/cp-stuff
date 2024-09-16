@@ -8,9 +8,20 @@ int rand(int a, int b) {
 
 int main(int argc, char* argv[]) {
     srand(atoi(argv[1]));
-    int n = rand(2, 20);
-    printf("%d\n", n);
+    // cout << 1 << endl;
+    int n = rand(10, 15), q = rand(2, 5);
+    // cout << n << " " << q << endl;
+    // for(int i = 0 ; i < n ; i++)
+    // {
+    //     cout << rand(0, 1) << " ";
+    // }
+    // cout << endl;
+    cout << n << endl;
     for(int i = 2; i <= n; ++i) {
         printf("%d %d\n", rand(1, i - 1), i);
     }
+    // for(int i = 0 ; i < q ; i++)
+    // {
+    //     cout << rand(1, n) << endl;
+    // }
 }
